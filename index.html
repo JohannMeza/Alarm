@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarma para programadores </title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/index.css" type="text/css">
+    <base href="/">
+  </head>
+  <body> 
+    <section class="section-contain">
+      <!-- MAIN-->
+      <div class="section-contain__left"> <span class="left__nav btn-nav"><i class="fas fa-bars"></i></span>
+        <div class="left__hour"><span class="left__hour__restant" id="hour-now">Iniciar</span></div>
+        <div class="left__btn"> 
+          <div class="left__btn__contain">
+            <button class="btn__contain contain-start-btn"><span class="start-btn btn-blue"><i class="fas fa-play start-btn"></i></span><span class="start-btn btn-blue">Iniciar</span></button>
+            <button class="btn__contain disabled contain-accept-btn"><span class="accept-btn"><i class="fas fa-check accept-btn"></i></span><span class="accept-btn">Aceptar </span></button>
+            <button class="btn__contain disabled contain-stop-btn"><span class="stop-btn"><i class="far fa-stop-circle stop-btn"></i></span><span class="stop-btn" id="text-reanudar">Eliminar</span></button>
+          </div>
+        </div>
+        <div class="left__clock"><span class="left__clock__now"></span></div>
+      </div>
+      <!-- NAV-->
+      <div class="section-contain__right"> <span class="left__nav btn-nav"><i class="fas fa-bars"></i></span>
+        <div class="right__icons"><span class="right__icons__hour"><i class="fas fa-clock"></i></span><span class="right__icons__weather">
+             <i class="fas fa-stopwatch"></i></span><span class="right__icons__retarted"><i class="fas fa-history"></i></span></div>
+        <div class="right__weather"></div>
+        <div class="right__delete">
+           <i class="fas fa-trash"></i> </div>
+      </div>
+    </section>
+    <script src="../js/index.js" type="module"></script>
+  </body>
+</html>
