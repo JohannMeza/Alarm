@@ -9,7 +9,7 @@ import temporizador from "./dom/temporizador.js";
 
 d.addEventListener("DOMContentLoaded", e => {
   menuDespegable(".section-contain__right", ".section-contain__left", "(min-width: 1024px)");
-  temporizador("hour-now", "../../recursos/alarm.mp3"); 
+  temporizador("hour-now", "Alarm/recursos/alarm.mp3"); 
   modalNew()
 })
 
