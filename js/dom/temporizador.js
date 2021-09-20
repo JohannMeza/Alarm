@@ -34,7 +34,6 @@ export default function temporizador (id, linkAudio) {
   let desTemp,
     hourTemp,    
     minTemp,
-    segTemp,
     titleTemp,    
     messageTemp;    
 
@@ -45,11 +44,10 @@ export default function temporizador (id, linkAudio) {
       e.preventDefault()
       hourTemp = parseInt(e.target.hour.value.substring(0,2))
       minTemp = parseInt(e.target.min.value)
-      segTemp = parseInt(e.target.seg.value)
       desTemp = parseInt(e.target.descanso.value.substring(0,2))
       titleTemp = e.target.title.value
       messageTemp = e.target.message.value
-      tempoCalc = `${hourTemp.toString().length === 1  ? `0${hourTemp.toString()}` : hourTemp}:${minTemp.toString().length === 1  ? `0${minTemp.toString()}` : minTemp}:${segTemp.toString().length === 1  ? `0${segTemp.toString()}` : segTemp}`
+      tempoCalc = `${hourTemp.toString().length === 1  ? `0${hourTemp.toString()}` : hourTemp}:${minTemp.toString().length === 1  ? `0${minTemp.toString()}` : minTemp}:00`;
       if ($clock.textContent === "Iniciar") {
         d.getElementById("hour-now").textContent = tempoCalc
         d.querySelector(".btnSpan").textContent = "Editar"
@@ -133,7 +131,7 @@ export default function temporizador (id, linkAudio) {
       /*====== DEFINIR INPUTS ====*/
       timeInputHour = hourTemp * h * 1000,
       timeInputMin = minTemp * min * 1000,
-      timeInputSeg = segTemp * 1000,
+      timeInputSeg = 0 * 1000,
       timeRestant;
       /*======= DEFINIR TIEMPO TOTAL Y EL INPUT ===============*/  
       timeInput = timeInputHour + timeInputMin + timeInputSeg,
@@ -158,7 +156,7 @@ export default function temporizador (id, linkAudio) {
       /*====== DEFINIR INPUTS ====*/
       timeInputHour = hourTemp * h * 1000,
       timeInputMin = minTemp * min * 1000,
-      timeInputSeg = segTemp * 1000,
+      timeInputSeg = 0 * 1000,
       timeRestant;
       /*======= DEFINIR TIEMPO TOTAL Y EL INPUT ===============*/  
       timeInput = timeInputHour + timeInputMin + timeInputSeg,
