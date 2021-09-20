@@ -4,123 +4,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temporizador / Alarma / Reloj / Cronómetro </title>
+    <title>Alarma para programadores </title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/alarma/alarma.css">
+    <link rel="stylesheet" href="../css/index.css" type="text/css">
+    <base href="/">
   </head>
   <body> 
-    <!-- header-->
-    <header class="header"> 
-      <div class="header__content"><span class="header__icon" id="btnNav"><i class="fas fa-bars"></i></span><span class="header__icon"><i class="fas fa-cog"></i></span></div>
-    </header>
-    <!-- end header-->
-    <!-- nav-->
-    <nav class="nav" id="nav">
-      <ul class="nav__list-content">
-        <li class="nav__list-item" title="Alarma"><a class="nav__list-link" href="/public/index.html"><i class="fas fa-qrcode"></i><span class="nav__span">Alarma</span></a></li>
-        <li class="nav__list-item" title="Temporizador"><a class="nav__list-link" href="/public/page/tempo.html"><i class="fas fa-bullhorn"></i><span class="nav__span">Temporizador</span></a></li>
-        <li class="nav__list-item" title="Cronómetro"><a class="nav__list-link" href="/public/page/crono.html"><i class="fas fa-rss"></i><span class="nav__span">Cronómetro</span></a></li>
-        <li class="nav__list-item" title="Reloj"><a class="nav__list-link" href="/public/page/reloj.html"><i class="fas fa-paper-plane"></i><span class="nav__span">Reloj</span></a></li>
-        <li class="nav__list-item" title="Trabajo"><a class="nav__list-link" href="/public/page/tempo_trabajo.html"><i class="fas fa-code-branch"></i><span class="nav__span">Trabajo</span></a></li>
-      </ul>
-    </nav>
-    <!-- end nav-->
-    <!-- main-->
-    <main class="main">
-      <div class="main__clock"><span class="main__clock-span">Iniciar</span></div>
-      <section class="main__description"><span class="main__description-span">Para: <span class="span--b">1:50:50 </span></span><span class="main__description-span">Restante: <span class="span--b">1:50:50 </span></span><span class="main__description-span">Nombre: <span class="span--b nombreAlarma"></span></span></section>
-      <div class="main__tables">
-        <div class="main__table-contain">
-          <div class="main__table">
-            <div class="main__head"><span class="main__head-span">
-                 <i class="fas fa-qrcode"></i>Hora iniciada</span><span class="main__head-span">
-                <i class="fas fa-bullhorn"></i>Hora apagada</span></div>
-            <div class="main__body">
-              <div class="main__body-item"><span class="main__body-span">12:00:00</span><span class="main__body-span">15:00:00</span></div>
-              <div class="main__body-item"><span class="main__body-span">12:00:00</span><span class="main__body-span">15:00:00</span></div>
-              <div class="main__body-item"><span class="main__body-span">12:00:00</span><span class="main__body-span">15:00:00</span></div>
-            </div>
-          </div>
-          <div class="main__action">
-            <button class="main__btn main__btn--danger btnEliminar btn--disabled btnModal" data-modal="modalDelete">Eliminar </button>
-            <button class="main__btn main__btn--orange">Aceptar </button>
-            <button class="main__btn main__btn--orange">Editar </button>
+    <section class="section-contain">
+      <!-- MAIN-->
+      <div class="section-contain__left"> <span class="left__nav btn-nav"><i class="fas fa-bars"></i></span>
+        <div class="left__hour"><span class="left__hour__restant" id="hour-now">Iniciar</span></div>
+        <div class="left__btn"> 
+          <div class="left__btn__contain">
+            <button class="btn__contain disabled contain-start-btn"><span class="start-btn btn-blue"><i class="fas fa-play start-btn"></i></span><span class="start-btn btn-blue">Iniciar</span></button>
+            <button class="btn__contain disabled contain-accept-btn"><span class="accept-btn"><i class="fas fa-check accept-btn"></i></span><span class="accept-btn">Aceptar </span></button>
+            <button class="btn__contain disabled contain-stop-btn"><span class="stop-btn"><i class="far fa-stop-circle stop-btn"></i></span><span class="stop-btn" id="text-reanudar">Eliminar</span></button>
+            <button class="btn__contain contain-edit-btn btn-blue" data-modal="modalEdit"><span class="accept-btn" data-modal="modalEdit"><i class="fas fa-edit" data-modal="modalEdit"></i></span><span class="accept-btn btnSpan" data-modal="modalEdit">Agregar </span></button>
           </div>
         </div>
-        <div class="main__table">
-          <div class="main__body-description"></div>
-          <div class="main__btn-contain">
-            <button class="main__btn-delete main__btn--danger">Eliminar</button>
-          </div>
-        </div>
+        <div class="left__clock"><span class="left__clock__now"></span></div>
       </div>
-      <div class="main__btn-new cursor--pointer btnModal" id="btnCreate" data-modal="createAlarm"><i class="fas fa-plus-square"></i></div>
-    </main>
-    <!-- end main-->
-    <!-- Template-->
-    <template id="template-getData">
-      <div class="main__description-item cursor--pointer">
-        <input type="checkbox" name=""><span>Para: <span class="horaWebinar"></span></span><span>Restante: <span class="restante"></span></span><span class="nameWebinar">Nombre: <span class="name__webinar" data-text="6"></span></span>
+      <!-- NAV-->
+      <div class="section-contain__right"> <span class="left__nav btn-nav"><i class="fas fa-bars"></i></span>
+        <div class="right__icons"><span class="right__icons__hour"><i class="fas fa-clock"></i></span><span class="right__icons__weather">
+             <i class="fas fa-stopwatch"></i></span><span class="right__icons__retarted"><i class="fas fa-history"></i></span></div>
+        <div class="right__weather"></div>
+        <div class="right__delete">
+           <i class="fas fa-trash"></i> </div>
       </div>
-    </template>
-    <!-- end Template-->
-    <!--Modal new-->
-    <div class="modal modalCreate" id="modalClose" data-modal="#createAlarm">
+    </section>
+    <div class="modal" data-modal="#modalEdit" id="modalClose">
       <div class="container-modal" id="containerModal">
-        <form class="modal-container" id="formNew">
+        <form class="modal-container w-100" id="form">
           <div> 
-            <div class="modal-header bg--confirmacion">
+            <div class="modal-header bg--confirmacion bg--blue">
               <h3 class="modal-header__title">Nueva Alarma</h3><span class="modal-header__close cursor--pointer" id="modalClose"><i class="fas fa-times" id="modalClose"></i></span>
-            </div><span class="modal-description">Ingrese la hora para la alarma</span>
+            </div><span class="modal-description">Ingrese la hora para el temporizador</span>
             <div class="modal-form"> 
               <div class="modal-form__contain">
-                <div class="modal-form__row">
-                  <div class="modal-form__input modal-form__hour"><span>Horas </span>
-                    <label class="btn-input">
-                      <select class="form__select-hour" name="hour"></select>
-                    </label>
-                  </div>
-                  <div class="modal-form__input modal-form__minutes"><span>Minutos</span>
-                    <label class="btn-input">
-                      <select class="form__select-minutes" name="min"></select>
-                    </label>
-                  </div>
+                <div class="modal-form__input modal-form__hour"><span>Horas </span>
+                  <label class="btn-input">
+                    <select class="form__select-hour" name="hour"></select>
+                  </label>
                 </div>
-                <div class="modal-form__input modal-form__sound"><span>Sonido</span>
-                  <label class="btn-sound">
-                    <select class="form__select-sound" name="sound"></select><span>
-                       <i class="fas fa-play"></i></span>
+                <div class="modal-form__input modal-form__minutes"><span>Minutos</span>
+                  <label class="btn-input">
+                    <select class="form__select-minutes" name="min"></select>
+                  </label>
+                </div>
+                <div class="modal-form__input modal-form__minutes"><span>Descanso</span>
+                  <label class="btn-input">
+                    <select class="form__select-descanso" name="descanso"></select>
                   </label>
                 </div>
                 <div class="modal-form__input modal-form__title"><span>Titulo </span>
-                  <input class="form__input-title" type="text" name="title" required>
+                  <input class="form__input-title" type="text" name="title" required autocomplete="off">
+                </div>
+                <div class="modal-form__input modal-form__title"><span>Mensaje </span>
+                  <input class="form__input-title" type="text" name="message" required autocomplete="off">
                 </div>
               </div>
             </div>
           </div>
           <div class="modal-btn">
-            <button class="main__btn--danger" id="modalClose">Cancelar</button>
-            <button class="main__btn--green" id="btnPost">Aceptar</button>
+            <button class="btn--red" id="modalClose">Cancelar</button>
+            <button class="btn--blue" id="modalClose">Aceptar</button>
           </div>
         </form>
       </div>
     </div>
-    <!--end Modal new-->
-    <!--Modal delete-->
-    <div class="modal" id="modalClose" data-modal="#modalDelete" tabindex="-1">
-      <div class="container-modal" id="containerModal">
-        <div> 
-          <div class="modal-header bg--delete">
-            <h3 class="modal-header__title">¿Estás seguro de eliminar esta alarma?</h3>
-          </div><span class="modal-description">Estas por eliminar la alarma <span class="nombreAlarma"></span></span>
-        </div>
-        <div class="modal-btn">
-          <button class="main__btn--danger" id="modalClose">No, cancelar</button>
-          <button class="main__btn--green" id="btnDelete">Si, eliminar</button>
-        </div>
-      </div>
-    </div>
-    <!--end Modal delete-->
-    <script src="./js/index.js" type="module"> </script><script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/index.js" type="module"></script>
   </body>
 </html>
